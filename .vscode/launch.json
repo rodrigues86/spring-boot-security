@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<spring-crud-auth>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "br.com.rodrigues.springcrudauth.DemoApplication",
+            "projectName": "spring-crud-auth",
+            "args": ""
+        }
+    ]
+}

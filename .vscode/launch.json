@@ -2,13 +2,21 @@
     "configurations": [
         {
             "type": "java",
+            "name": "RunApplication",
+            "request": "launch",
+            "mainClass": "br.com.rodrigues.springcrudauth.RunApplication",
+            "projectName": "spring-crud-auth"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-DemoApplication<spring-crud-auth>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
             "mainClass": "br.com.rodrigues.springcrudauth.DemoApplication",
             "projectName": "spring-crud-auth",
-            "args": ""
+            "args": "",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=33011 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=spring-crud-auth"
         }
     ]
 }

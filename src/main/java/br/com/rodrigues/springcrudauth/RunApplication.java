@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @SpringBootApplication
 @EnableMongoRepositories
-public class RunApplication {
+public class RunApplication {  
 
 	public static void main(String[] args) {
 		SpringApplication.run(RunApplication.class, args);

@@ -1,17 +1,15 @@
 package br.com.rodrigues.springcrudauth.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * User
  */
-@Entity
+@Document
 public class User {
 
     @Id
-    @GeneratedValue
     private Long id;
     private String username;
     private String password;

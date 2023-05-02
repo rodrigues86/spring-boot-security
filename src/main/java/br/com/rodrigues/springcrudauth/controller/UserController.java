@@ -42,17 +42,17 @@ public class UserController {
   }
 
   @GetMapping
-  public List<User> pesquisar() {
+  public List<User> findAll() {
     return users.findAll();
   }
 
   @PostMapping
-  public User salvar(@RequestBody User user) {
+  public User save(@RequestBody User user) {
     return users.save(user);
   }
 
   @DeleteMapping("/{id}")
-  public void deletar(@PathVariable User id) {
+  public void delete(@PathVariable User id) {
     users.delete(id);
   }
 }

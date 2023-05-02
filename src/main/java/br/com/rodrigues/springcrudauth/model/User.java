@@ -1,6 +1,10 @@
 package br.com.rodrigues.springcrudauth.model;
 
+import java.util.List;
+import java.util.Set;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -10,10 +14,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
     @Id
-    private Long id;
+    @Indexed(unique=true)
+    private String id;
     private String username;
     private String password;
-    private String role;
+    private Set<Role> roles;
 
     /**
      * @return the username
@@ -25,15 +30,12 @@ public class User {
     /**
      * @return the role
      */
-    public String getRole() {
-        return role;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    /**
-     * @param role the role to set
-     */
-    public void setRole(String role) {
-        this.role = role;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     /**

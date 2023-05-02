@@ -9,19 +9,17 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.authorizeHttpRequests((requests) -> requests
-				.requestMatchers("/", "/home").permitAll()
-				.anyRequest().authenticated()
-			)
-			.formLogin((form) -> form
-				.loginPage("/login")
-				.permitAll()
-			)
-			.logout((logout) -> logout.permitAll());
-
-		return http.build();
+	@Bean
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		return http.authorizeHttpRequests((requests) -> requests
+				.requestMatchers("/", "/home").authenticated()
+				.requestMatchers("/users", "/smoke").permitAll().anyRequest().anonymous()
+		)
+				.formLogin((form) -> form
+						.loginPage("/login")
+						.permitAll())
+				.logout((logout) -> logout.permitAll())
+				.build();
 	}
 
 }

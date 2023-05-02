@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.rodrigues.springcrudauth.model.User;
@@ -20,26 +21,38 @@ import br.com.rodrigues.springcrudauth.model.Users;
 @RequestMapping("/users")
 public class UserController {
 
-    @Autowired
-    private Users users;
+  @Autowired
+  private Users users;
 
-    // @GetMapping
-    // public User findById(@PathVariable User id) {
-    //   // return users.findOne(id);
-    // }
+  // @GetMapping
+  // public User findById(@PathVariable User id) {
+  // // return users.findOne(id);
+  // }
 
-    @GetMapping
-    public List<User> pesquisar() {
-      return users.findAll();
-    }
-     
-    @PostMapping
-    public User salvar(@RequestBody User user) {
-      return users.save(user);
-    }
-   
-    @DeleteMapping("/{id}")
-    public void deletar(@PathVariable User id) {
-      users.delete(id);
-    }
+  @GetMapping(value = "/smoke")
+  public String smokeTestQueryString(@RequestParam String param) {
+    System.out.println("smokeTestQueryString");
+    return param;
+  }
+
+  @GetMapping(value = "/smoke/{param}")
+  public String smokeTestParam(@PathVariable String param) {
+    System.out.println("smokeTestParam");
+    return param;
+  }
+
+  @GetMapping
+  public List<User> pesquisar() {
+    return users.findAll();
+  }
+
+  @PostMapping
+  public User salvar(@RequestBody User user) {
+    return users.save(user);
+  }
+
+  @DeleteMapping("/{id}")
+  public void deletar(@PathVariable User id) {
+    users.delete(id);
+  }
 }
